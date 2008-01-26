@@ -266,7 +266,7 @@
                              (cond (greedyp
                                     (make-alt-node-args seq nil))
                                    (t (make-alt-node-args nil seq)))))
-                  finally return tmp)))
+                  finally (return tmp))))
       (make-seq-node-list `(,@reqd ,opt))))
    ((and *registers-match-rightmost* (null highbound))
     (let* ((reqd (loop for i from 0 below lowbound
@@ -293,7 +293,7 @@
                              (cond (greedyp
                                     (make-alt-node-args seq nil))
                                    (t (make-alt-node-args nil seq)))))
-                  finally return tmp)))
+                  finally (return tmp))))
       (make-seq-node-list `(,@reqd ,opt))))
    (t (let* ((registerless-node (unregister node))
              (reqd
@@ -373,7 +373,7 @@
   (cond ((null strings) "")
         (t (loop for str in strings
                  for result = str then (concatenate 'simple-string result str)
-                 finally return result))))
+                 finally (return result)))))
 
 (defun partition-charclass-sequence (seq)
   (loop with classseq = nil
@@ -564,8 +564,8 @@
   (loop while (consp lst)
         for x = (pop lst)
         when (funcall fxn x) return t
-        finally return (cond ((null lst) nil)
-                             (t (funcall fxn lst)))))
+        finally (return (cond ((null lst) nil)
+                              (t (funcall fxn lst))))))
 
 (defun unregister (node)
   (cond

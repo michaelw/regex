@@ -1,7 +1,7 @@
 ;;; -*- Mode: Lisp; Syntax: Common-Lisp; Base: 10 -*-
 
 (defpackage REGEX
-  (:use COMMON-LISP CLOS)
+  (:use common-lisp)
   (:export
     ;; compiler
     "COMPILE-STR" "COMPILE-EXPR" "PARSE-STR"

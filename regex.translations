@@ -1,0 +1,5 @@
+
+#+:Lispworks
+(setf (logical-pathname-translations "REGEX")
+      '(("REGEX:SYS;*" "d:/lisp/*")
+        ("REGEX:SRC;*" "d:/lisp/regex/*")))

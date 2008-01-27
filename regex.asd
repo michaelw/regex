@@ -13,7 +13,7 @@
                                                       "optimize" "gen" "closure"))
                (:file "regexp-test-suite" :depends-on ("packages" "regex"))
                (:file "retest" :depends-on ("packages" "regex" "regexp-test-suite"))
-               (:static-file "regex.system")
-               (:static-file "regex.translations"))
+               (:static-file "regex.system" :pathname "regex.system")
+               (:static-file "regex.translations" :pathname "regex.translations"))
   ;; :long-description ""
   )

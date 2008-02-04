@@ -1,5 +1,5 @@
 (asdf:defsystem regex
-  :version "0"
+  :version "1"
   :description "A Regular Expression Engine"
   :author "Michael Parker <mparker762@hotmail.com>"
   :licence "BSD-style"
@@ -10,7 +10,7 @@
                (:file "gen" :depends-on ("packages" "macs"))
                (:file "closure" :depends-on ("packages" "macs"))
                (:file "regex" :depends-on ("packages" "macs" "parser"
-                                                      "optimize" "gen" "closure"))
+                                           "optimize" "gen" "closure"))
                (:file "regexp-test-suite" :depends-on ("packages" "regex"))
                (:file "retest" :depends-on ("packages" "regex" "regexp-test-suite"))
                (:static-file "regex.system" :pathname "regex.system")

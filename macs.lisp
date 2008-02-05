@@ -7,7 +7,9 @@
 ;(eval-when (eval compile load)
 ;  (pushnew :debug-regex *features*) )
 
-
+(defmacro define-constant (name value &optional doc)
+  `(defconstant ,name (if (boundp ',name) (symbol-value ',name) ,value)
+     ,@(when doc (list doc))))
 
 ;;;;
 ;;;; Regex Configuration
@@ -478,7 +480,7 @@
   nil)
 
 
-(defconstant +special-class-names+
+(define-constant +special-class-names+
   '((":alpha:" alpha) (":upper:" upper) (":lower:" lower) (":digit:" digit)
     (":alnum:" alnum) (":xdigit:" xdigit) (":odigit:" odigit) (":punct:" punct)
     (":space:" space)))
